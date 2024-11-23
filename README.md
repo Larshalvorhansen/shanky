@@ -1,6 +1,6 @@
 # Flashcard Deck Manager
 
-**lanki** is a Python-based and soon-to-be command-line application for practicing flashcards stored as CSV files. It uses spaced repetition (specifically the [Leitner system](https://en.wikipedia.org/wiki/Leitner_system)) to improve memory retention and provides features to reset, edit, and practice flashcard decks.
+**lanki** is a Python-based and soon-to-be command-line application for practicing flashcards stored as CSV files. It uses spaced repetition (specifically the [Leitner verison](https://en.wikipedia.org/wiki/Leitner_system)) to improve memory retention and provides features to reset, edit, and practice flashcard decks.
 
 It is desiged to be both effective for learning and super simple to use.
 
