@@ -144,14 +144,15 @@ def reset_decks():
 
 
 def reset_deck(deck):
-    """Sets all card scores in a specific deck to 0."""
+    """Sets all card scores in a specific deck to 1."""
     cards = load_deck(deck)
     if not cards:
         return
     for card in cards:
-        card["score"] = "0"  # Reset the score
+        card["score"] = "1"  # Reset the score
     save_deck(deck, cards)
-    print(f"All cards in deck '{deck}' have been reset to score 0.")
+    print(f"All cards in deck '{deck}' have been reset to score 1.")
+    input("Press enter to go back to the menu.")
 
 
 def spaced_repetition_score_update(score, rating):
