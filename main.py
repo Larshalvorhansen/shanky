@@ -190,10 +190,19 @@ def generate_statistics(deck_name):
         print(f"Error: Deck '{deck_name}' does not exist.")
         return
 
-    scores_count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    scores_count = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
     total_cards = 0
-    total_score = 0
-    max_possible_score = 0
+    total_score = 0  # Calculated based on completeness percentages
+
+    # Map scores to their corresponding completeness percentages
+    score_completeness = {
+        0: 0.0,   # 0%
+        1: 0.2,   # 20%
+        2: 0.4,   # 40%
+        3: 0.6,   # 60%
+        4: 0.8,   # 80%
+        5: 1.0    # 100%
+    }
 
     with open(deck_path, 'r') as file:
         reader = csv.DictReader(file)
@@ -201,17 +210,20 @@ def generate_statistics(deck_name):
             score = int(row['score'])
             scores_count[score] += 1
             total_cards += 1
-            total_score += score
-            max_possible_score += 5
+            # Add the percentage completeness for this card's score
+            total_score += score_completeness[score]
 
     print(f"Number of cards with score")
+    print(f"0: {scores_count[0]}")
     print(f"1: {scores_count[1]}")
     print(f"2: {scores_count[2]}")
     print(f"3: {scores_count[3]}")
     print(f"4: {scores_count[4]}")
     print(f"5: {scores_count[5]}")
     print(f"Number of cards in deck: {total_cards}")
-    overall_completeness = (total_score / max_possible_score) * 100 if total_cards > 0 else 0
+    
+    # Overall completeness in percentage
+    overall_completeness = (total_score / total_cards) * 100 if total_cards > 0 else 0
     print(f"Overall completeness: {overall_completeness:.2f}%")
 
 def main():
