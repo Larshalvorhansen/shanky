@@ -1,16 +1,12 @@
 country,capital,score
-Abkhazia,Sukhumi,0
 Afghanistan,Kabul,0
-Akrotiri and Dhekelia,Episkopi Cantonment,0
 Albania,Tirana,0
 Algeria,Algiers,0
-American Samoa,Pago Pago,0
 Andorra,Andorra la Vella,0
 Angola,Luanda,0
-Anguilla,The Valley,0
-Antigua and Barbuda,St. John's,0
+Antigua & Barbuda,St. John's,0
+Argentina,Buenos Aires,0
 Armenia,Yerevan,0
-Aruba,Oranjestad,0
 Australia,Canberra,0
 Austria,Vienna,0
 Azerbaijan,Baku,0
@@ -22,72 +18,64 @@ Belarus,Minsk,0
 Belgium,Brussels,0
 Belize,Belmopan,0
 Benin,Porto-Novo,0
-Bermuda,Hamilton,0
 Bhutan,Thimphu,0
-Bolivia,Sucre,0
 Bolivia,La Paz,0
-Bosnia and Herzegovina,Sarajevo,0
+Bosnia & Herzegovina,Sarajevo,0
 Botswana,Gaborone,0
 Brazil,Brasília,0
 Brunei,Bandar Seri Begawan,0
 Bulgaria,Sofia,0
 Burkina Faso,Ouagadougou,0
-Burundi,Bujumbura,0
+Burundi,Gitega,0
+Cabo Verde,Praia,0
 Cambodia,Phnom Penh,0
 Cameroon,Yaoundé,0
 Canada,Ottawa,0
-Cape Verde,Praia,0
 Central African Republic,Bangui,0
 Chad,N'Djamena,0
 Chile,Santiago,0
 China,Beijing,0
 Colombia,Bogotá,0
 Comoros,Moroni,0
+Congo,Brazzaville,0
 Costa Rica,San José,0
+Côte d'Ivoire,Yamoussoukro,0
 Croatia,Zagreb,0
 Cuba,Havana,0
-Curaçao,Willemstad,0
 Cyprus,Nicosia,0
 Czech Republic,Prague,0
-Côte d'Ivoire,Yamoussoukro,0
-Democratic Republic of the Congo,Kinshasa,0
 Denmark,Copenhagen,0
 Djibouti,Djibouti,0
 Dominica,Roseau,0
 Dominican Republic,Santo Domingo,0
-East Timor (Timor-Leste),Dili,0
+DR Congo,Kinshasa,0
 Ecuador,Quito,0
 Egypt,Cairo,0
 El Salvador,San Salvador,0
 Equatorial Guinea,Malabo,0
 Eritrea,Asmara,0
 Estonia,Tallinn,0
+Eswatini,Mbabane,0
 Ethiopia,Addis Ababa,0
-Federated States of Micronesia,Palikir,0
 Fiji,Suva,0
 Finland,Helsinki,0
 France,Paris,0
-French Guiana,Cayenne,0
-French Polynesia,Papeete,0
 Gabon,Libreville,0
 Gambia,Banjul,0
 Georgia,Tbilisi,0
 Germany,Berlin,0
 Ghana,Accra,0
-Gibraltar,Gibraltar,0
 Greece,Athens,0
-Greenland,Nuuk,0
 Grenada,St. George's,0
-Guam,Hagåtña,0
 Guatemala,Guatemala City,0
-Guernsey,St. Peter Port,0
 Guinea,Conakry,0
 Guinea-Bissau,Bissau,0
 Guyana,Georgetown,0
 Haiti,Port-au-Prince,0
+Holy See,Vatican City,0
 Honduras,Tegucigalpa,0
 Hungary,Budapest,0
-Iceland,Reykjavík,0
+Iceland,Reykjavik,0
 India,New Delhi,0
 Indonesia,Jakarta,0
 Iran,Tehran,0
@@ -98,10 +86,9 @@ Italy,Rome,0
 Jamaica,Kingston,0
 Japan,Tokyo,0
 Jordan,Amman,0
-Kazakhstan,Astana,0
+Kazakhstan,Nur-Sultan,0
 Kenya,Nairobi,0
-Kiribati,Tarawa,0
-Kosovo,Pristina,0
+Kiribati,South Tarawa,0
 Kuwait,Kuwait City,0
 Kyrgyzstan,Bishkek,0
 Laos,Vientiane,0
@@ -112,17 +99,18 @@ Liberia,Monrovia,0
 Libya,Tripoli,0
 Liechtenstein,Vaduz,0
 Lithuania,Vilnius,0
-Luxembourg,Luxembourg,0
-Macedonia,Skopje,0
+Luxembourg,Luxembourg City,0
 Madagascar,Antananarivo,0
 Malawi,Lilongwe,0
 Malaysia,Kuala Lumpur,0
-Maldives,Malé,0
+Maldives,Male,0
 Mali,Bamako,0
 Malta,Valletta,0
+Marshall Islands,Majuro,0
 Mauritania,Nouakchott,0
 Mauritius,Port Louis,0
 Mexico,Mexico City,0
+Micronesia,Palikir,0
 Moldova,Chisinau,0
 Monaco,Monaco,0
 Mongolia,Ulaanbaatar,0
@@ -131,7 +119,7 @@ Morocco,Rabat,0
 Mozambique,Maputo,0
 Myanmar,Naypyidaw,0
 Namibia,Windhoek,0
-Nauru,Yaren,0
+Nauru,Yaren District,0
 Nepal,Kathmandu,0
 Netherlands,Amsterdam,0
 New Zealand,Wellington,0
@@ -139,11 +127,11 @@ Nicaragua,Managua,0
 Niger,Niamey,0
 Nigeria,Abuja,0
 North Korea,Pyongyang,0
+North Macedonia,Skopje,0
 Norway,Oslo,0
 Oman,Muscat,0
 Pakistan,Islamabad,0
 Palau,Ngerulmud,0
-Palestine,Jerusalem,0
 Panama,Panama City,0
 Papua New Guinea,Port Moresby,0
 Paraguay,Asunción,0
@@ -155,11 +143,11 @@ Qatar,Doha,0
 Romania,Bucharest,0
 Russia,Moscow,0
 Rwanda,Kigali,0
-Saint Kitts and Nevis,Basseterre,0
+Saint Kitts & Nevis,Basseterre,0
 Saint Lucia,Castries,0
-Saint Vincent and the Grenadines,Kingstown,0
 Samoa,Apia,0
 San Marino,San Marino,0
+Sao Tome & Principe,São Tomé,0
 Saudi Arabia,Riyadh,0
 Senegal,Dakar,0
 Serbia,Belgrade,0
@@ -168,24 +156,27 @@ Sierra Leone,Freetown,0
 Singapore,Singapore,0
 Slovakia,Bratislava,0
 Slovenia,Ljubljana,0
+Solomon Islands,Honiara,0
 Somalia,Mogadishu,0
-South Africa,Pretoria,0
+South Africa,Cape Town,0
 South Korea,Seoul,0
 South Sudan,Juba,0
 Spain,Madrid,0
-Sri Lanka,Sri Jayawardenapura Kotte,0
+Sri Lanka,Sri Jayawardenepura Kotte,0
+St. Vincent & Grenadines,Kingstown,0
+State of Palestine,Ramallah,0
 Sudan,Khartoum,0
 Suriname,Paramaribo,0
-Swaziland,Mbabane,0
 Sweden,Stockholm,0
 Switzerland,Bern,0
 Syria,Damascus,0
 Tajikistan,Dushanbe,0
 Tanzania,Dodoma,0
 Thailand,Bangkok,0
+Timor-Leste,Dili,0
 Togo,Lomé,0
-Tonga,Nukuʻalofa,0
-Trinidad and Tobago,Port of Spain,0
+Tonga,Nuku'alofa,0
+Trinidad & Tobago,Port of Spain,0
 Tunisia,Tunis,0
 Turkey,Ankara,0
 Turkmenistan,Ashgabat,0
@@ -194,14 +185,12 @@ Uganda,Kampala,0
 Ukraine,Kyiv,0
 United Arab Emirates,Abu Dhabi,0
 United Kingdom,London,0
-United States,Washington,0
+United States,Washington DC,0
 Uruguay,Montevideo,0
 Uzbekistan,Tashkent,0
 Vanuatu,Port Vila,0
-Vatican City,Vatican City,0
 Venezuela,Caracas,0
 Vietnam,Hanoi,0
-Yemen,Sanaá,0
+Yemen,Sana'a,0
 Zambia,Lusaka,0
 Zimbabwe,Harare,0
-Argentina,Buenos Aires,0
