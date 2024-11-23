@@ -20,10 +20,14 @@ def load_deck(deck):
                 # Ensure all required fields exist and default values are valid
                 row.setdefault("country", "")
                 row.setdefault("capital", "")
-                row.setdefault("score", "1")  # Default score is 1
-                # Ensure score is at least 1
-                if int(row["score"]) < 1:
-                    row["score"] = "1"
+                row.setdefault("score", "0")  # Default score is 0
+                
+                # Ensure score is a valid integer
+                try:
+                    row["score"] = str(max(0, int(row["score"])))  # Ensure non-negative score
+                except ValueError:
+                    row["score"] = "0"  # Default to 0 if invalid
+                
                 cards.append(row)
             if not cards:
                 print(f"Error: Deck '{deck}' is empty or corrupt.")
@@ -50,7 +54,7 @@ def practice(deck, num_cards="10"):
     # Check if all cards are perfect (score 5)
     if all(int(card.get("score", 1)) == 5 for card in cards):
         print(
-            "All the cards in his deck are practiced to perfection! You can reset the deck if you want to practice it again."
+            "All the cards in this deck are practiced to perfection! You can reset the deck if you want to practice it again."
         )
         return
 
@@ -105,10 +109,10 @@ def practice(deck, num_cards="10"):
                     card["score"] = "1"  # Reset to Box 1
                     print("Incorrect. Card moved back to level 1.")
 
-                # Save the card's updated state immediately
-                save_deck(deck, cards)
-
                 practiced += 1
+
+    # Save all updated cards once at the end of the session
+    save_deck(deck, cards)
 
     print(
         f"\nPractice session complete for deck '{deck}'. You practiced {practiced} card(s)."
