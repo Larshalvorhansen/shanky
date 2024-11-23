@@ -113,6 +113,7 @@ def practice(deck, num_cards="10"):
     print(
         f"\nPractice session complete for deck '{deck}'. You practiced {practiced} card(s)."
     )
+    input("Press enter to go back to the menu.")
 
 
 def save_deck(deck, cards):
@@ -225,6 +226,7 @@ def generate_statistics(deck_name):
     # Overall completeness in percentage
     overall_completeness = (total_score / total_cards) * 100 if total_cards > 0 else 0
     print(f"Overall completeness: {overall_completeness:.2f}%")
+    input("Press enter to go back to the menu.")
 
 def main():
     """Main function to handle commands."""
