@@ -5,6 +5,17 @@ import time
 # Directory where decks are stored
 DECKS_DIR = "/Users/lhh/lanki-2/decks"
 
+ascii_art = r""" Welcome to
+ _             _    _ 
+| | __ _ _ __ | | _(_)
+| |/ _` | '_ \| |/ / |
+| | (_| | | | |   <| |
+|_|\__,_|_| |_|_|\_\_|
+a flashcard program for the terminal
+"""
+
+
+
 
 def load_deck(deck):
     """Loads a deck (CSV file) and returns a list of cards."""
