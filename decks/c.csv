@@ -1,22 +1,13 @@
 country,capital,score
-Côte d'Ivoire,Yamoussoukro,2
 Croatia,Zagreb,1
-Cuba,Havana,2
-Cyprus,Nicosia,2
-Czech Republic,Prague,2
-Denmark,Copenhagen,2
-Djibouti,Djibouti,2
-Dominica,Roseau,2
-Dominican Republic,Santo Domingo,2
-DR Congo,Kinshasa,2
 Ecuador,Quito,1
-Egypt,Cairo,1
-El Salvador,San Salvador,1
+Egypt,Cairo,2
+El Salvador,San Salvador,2
 Equatorial Guinea,Malabo,1
 Eritrea,Asmara,1
-Estonia,Tallinn,1
+Estonia,Tallinn,2
 Eswatini,Mbabane,1
-Ethiopia,Addis Ababa,1
+Ethiopia,Addis Ababa,2
 Fiji,Suva,1
 Finland,Helsinki,1
 France,Paris,1
@@ -194,3 +185,12 @@ Australia,Canberra,1
 Austria,Vienna,1
 Slovakia,Bratislava,1
 Algeria,Algiers,1
+Côte d'Ivoire,Yamoussoukro,1
+Cuba,Havana,1
+Cyprus,Nicosia,1
+Czech Republic,Prague,1
+Denmark,Copenhagen,1
+Djibouti,Djibouti,1
+Dominica,Roseau,1
+Dominican Republic,Santo Domingo,1
+DR Congo,Kinshasa,1

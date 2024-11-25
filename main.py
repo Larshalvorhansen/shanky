@@ -3,7 +3,7 @@ import os
 import time
 
 # Directory where decks are stored
-DECKS_DIR = "./decks"
+DECKS_DIR = "/Users/lhh/lanki-2/decks"
 
 
 def load_deck(deck):
@@ -183,51 +183,53 @@ def spaced_repetition_score_update(score, rating):
         print("Error: Invalid score or rating value.")
         return 0
 
+
 def generate_statistics(deck_name):
     """Loads a deck (CSV file) and prints statistics."""
     # Ensure the deck file has the .csv extension
     deck_path = os.path.join(DECKS_DIR, f"{deck_name}.csv")
-    
+
     if not os.path.exists(deck_path):
         print(f"Error: Deck '{deck_name}' does not exist.")
         return
 
-    scores_count = {0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+    # Initialize score counts for 1-5
+    scores_count = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
     total_cards = 0
     total_score = 0  # Calculated based on completeness percentages
 
     # Map scores to their corresponding completeness percentages
     score_completeness = {
-        0: 0.0,   # 0%
-        1: 0.2,   # 20%
-        2: 0.4,   # 40%
-        3: 0.6,   # 60%
-        4: 0.8,   # 80%
-        5: 1.0    # 100%
+        1: 0.2,  # 20%
+        2: 0.4,  # 40%
+        3: 0.6,  # 60%
+        4: 0.8,  # 80%
+        5: 1.0,  # 100%
     }
 
-    with open(deck_path, 'r') as file:
+    with open(deck_path, "r") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            score = int(row['score'])
+            score = int(row["score"])
+            if score not in scores_count:
+                print(f"Warning: Invalid score '{score}' in data.")
+                continue
             scores_count[score] += 1
             total_cards += 1
             # Add the percentage completeness for this card's score
             total_score += score_completeness[score]
 
-    print(f"Number of cards with score")
-    print(f"0: {scores_count[0]}")
-    print(f"1: {scores_count[1]}")
-    print(f"2: {scores_count[2]}")
-    print(f"3: {scores_count[3]}")
-    print(f"4: {scores_count[4]}")
-    print(f"5: {scores_count[5]}")
+    print("Number of cards with score:")
+    for score in range(1, 6):  # Loop through scores 1-5
+        print(f"{score}: {scores_count[score]}")
+
     print(f"Number of cards in deck: {total_cards}")
-    
+
     # Overall completeness in percentage
     overall_completeness = (total_score / total_cards) * 100 if total_cards > 0 else 0
     print(f"Overall completeness: {overall_completeness:.2f}%")
     input("Press enter to go back to the menu.")
+
 
 def main():
     """Main function to handle commands."""
@@ -240,9 +242,7 @@ def main():
         print(
             "  practice [deck]   - (p)  - Starts a practice session with the specified deck."
         )
-        print(
-            "  get-statistics    - (gs) - Prints statistics for a specified deck."
-        )
+        print("  get-statistics    - (gs) - Prints statistics for a specified deck.")
         print("  quit              - (q)  - Exit the program.")
 
         # Strip whitespace from the input command
@@ -262,7 +262,12 @@ def main():
 
         # Handle the normalized commands
         if command == "reset-all-decks":
-            if input("Are you sure you want to reset the score of all the decks?(yes/no) ") == "yes":
+            if (
+                input(
+                    "Are you sure you want to reset the score of all the decks?(yes/no) "
+                )
+                == "yes"
+            ):
                 reset_decks()
             else:
                 print("All your decks have been reset! ...")
@@ -310,6 +315,7 @@ def main():
             break
         else:
             print(f"Error: '{command}' is not a valid command.")
+
 
 # Run the program
 if __name__ == "__main__":
