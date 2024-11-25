@@ -200,11 +200,11 @@ def generate_statistics(deck_name):
 
     # Map scores to their corresponding completeness percentages
     score_completeness = {
-        1: 0.2,  # 20%
-        2: 0.4,  # 40%
-        3: 0.6,  # 60%
-        4: 0.8,  # 80%
-        5: 1.0,  # 100%
+        1: 0,  # 20%
+        2: .25,  # 40%
+        3: .5,  # 60%
+        4: .75,  # 80%
+        5: 1,  # 100%
     }
 
     with open(deck_path, "r") as file:
