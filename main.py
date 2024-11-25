@@ -201,9 +201,9 @@ def generate_statistics(deck_name):
     # Map scores to their corresponding completeness percentages
     score_completeness = {
         1: 0,  # 20%
-        2: .25,  # 40%
-        3: .5,  # 60%
-        4: .75,  # 80%
+        2: 0.25,  # 40%
+        3: 0.5,  # 60%
+        4: 0.75,  # 80%
         5: 1,  # 100%
     }
 
@@ -235,15 +235,15 @@ def main():
     """Main function to handle commands."""
     while True:
         print("\nAvailable Commands:")
-        print("  reset-all-decks   - (ra) - Sets all card scores in all decks to 0.")
+        print("  reset-all-decks (ra)   - Sets all card scores in all decks to 0.")
         print(
-            "  reset-deck [deck] - (r)  - Sets all card scores in a specific deck to 0."
+            "  reset-deck (r)         - Sets all card scores in a specific deck to 0."
         )
         print(
-            "  practice [deck]   - (p)  - Starts a practice session with the specified deck."
+            "  practice (p)           - Starts a practice session with the specified deck."
         )
-        print("  get-statistics    - (gs) - Prints statistics for a specified deck.")
-        print("  quit              - (q)  - Exit the program.")
+        print("  get-statistics (gs)    - Prints statistics for a specified deck.")
+        print("  quit (q)               - Exit the program.")
 
         # Strip whitespace from the input command
         command = input("\nEnter a command: ").strip()
