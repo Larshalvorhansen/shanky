@@ -5,16 +5,16 @@ import time
 # Directory where decks are stored
 DECKS_DIR = "/Users/lhh/lanki-2/decks"
 
-ascii_art = r""" Welcome to
- _             _    _ 
-| | __ _ _ __ | | _(_)
-| |/ _` | '_ \| |/ / |
-| | (_| | | | |   <| |
-|_|\__,_|_| |_|_|\_\_|
-a flashcard program for the terminal
+ascii_art = """
+┌─────────────────────────────┐
+│    _             _     _    │
+│   | |           | |   (_)   │
+│   | | ____ ____ | |  _ _    │
+│   | |/ _  |  _ \| | / ) |   │
+│   | ( ( | | | | | |< (| |   │
+│   |_|\_||_|_| |_|_| \_)_|   │
+└─────────────────────────────┘
 """
-
-
 
 
 def load_deck(deck):
@@ -28,12 +28,13 @@ def load_deck(deck):
             reader = csv.DictReader(file)
             cards = []
             for row in reader:
-                # Ensure all required fields exist and default values are valid
-                row.setdefault("country", "")
-                row.setdefault("capital", "")
-                row.setdefault("score", "1")  # Default score is 1
-                # Ensure score is at least 1
-                if int(row["score"]) < 1:
+                # Ensure a default "score" field exists for sorting and tracking
+                row.setdefault("score", "1")
+                # Validate and ensure "score" is at least 1
+                try:
+                    if int(row["score"]) < 1:
+                        row["score"] = "1"
+                except ValueError:
                     row["score"] = "1"
                 cards.append(row)
             if not cards:
@@ -44,12 +45,18 @@ def load_deck(deck):
         return []
 
 
-def should_review_score(score):
-    """Determines if a card with the given score should be reviewed."""
-    import random
+def print_card(content):
+    """Prints content surrounded by ASCII art to look like a card."""
+    border = "┌" + "─" * (len(content) + 4) + "┐"
+    padding = "│" + " " * (len(content) + 4) + "│"
+    content_line = f"│  {content}  │"
+    bottom_border = "└" + "─" * (len(content) + 4) + "┘"
 
-    score = max(int(score), 1)  # Ensure score is at least 1 to avoid division by zero
-    return random.random() < (1 / score)  # Higher scores are less likely to be reviewed
+    print(border)
+    print(padding)
+    print(content_line)
+    print(padding)
+    print(bottom_border)
 
 
 def practice(deck, num_cards="10"):
@@ -58,10 +65,20 @@ def practice(deck, num_cards="10"):
     if not cards:
         return
 
+    # Dynamically get field names from the first card
+    if cards:
+        fields = list(cards[0].keys())
+    else:
+        print(f"Error: Deck '{deck}' is empty.")
+        return
+
+    # Exclude the "score" field from practice questions
+    fields.remove("score")
+
     # Check if all cards are perfect (score 5)
     if all(int(card.get("score", 1)) == 5 for card in cards):
         print(
-            "All the cards in his deck are practiced to perfection! You can reset the deck if you want to practice it again."
+            "All the cards in this deck are practiced to perfection! You can reset the deck if you want to practice it again."
         )
         return
 
@@ -93,13 +110,16 @@ def practice(deck, num_cards="10"):
             # Determine if the card should be reviewed based on its score
             score = int(card.get("score", 1))  # Default score is 1
             if should_review_score(score):
-                # Display only the first field
-                print(f"\nCountry: {card['country']}")
+                # Display the first field dynamically in a card format
+                question_field = fields[0]
+                print_card(card[question_field])
 
                 input("Press Enter when ready to see the answer... ")
-                # Show the "answer" by displaying all fields
+                # Show the "answer" by displaying all fields except the question
                 print("Answer:")
-                print(f"  Capital: {card['capital']}")
+                for field in fields:
+                    if field != question_field:
+                        print(f"  {field.capitalize()}: {card[field]}")
                 print(f"  Score: {card['score']}")
 
                 # Ask if the user got it correct
@@ -125,6 +145,14 @@ def practice(deck, num_cards="10"):
         f"\nPractice session complete for deck '{deck}'. You practiced {practiced} card(s)."
     )
     input("Press enter to go back to the menu.")
+
+
+def should_review_score(score):
+    """Determines if a card with the given score should be reviewed."""
+    import random
+
+    score = max(int(score), 1)  # Ensure score is at least 1 to avoid division by zero
+    return random.random() < (1 / score)  # Higher scores are less likely to be reviewed
 
 
 def save_deck(deck, cards):
@@ -242,19 +270,37 @@ def generate_statistics(deck_name):
     input("Press enter to go back to the menu.")
 
 
+def list_available_decks():
+    """Lists all available decks in the DECKS_DIR directory."""
+    print("\nAvailable decks:")
+    decks = [file[:-4] for file in os.listdir(DECKS_DIR) if file.endswith(".csv")]
+    if decks:
+        for deck in decks:
+            print(f"  - {deck}")
+    else:
+        print("No decks available.")
+    return decks
+
+
+def printWelcomeScreen():
+    print()
+    print("Welcome to")
+    print(ascii_art)
+    print("A simple flascard app")
+    print("for the terminal!")
+
+
 def main():
     """Main function to handle commands."""
+    printWelcomeScreen()
     while True:
         print("\nAvailable Commands:")
-        print("  reset-all-decks (ra)   - Sets all card scores in all decks to 0.")
-        print(
-            "  reset-deck (r)         - Sets all card scores in a specific deck to 0."
-        )
-        print(
-            "  practice (p)           - Starts a practice session with the specified deck."
-        )
+        print("  practice (p)           - Starts practice session for chosen deck.")
+        print("  reset-deck (r)         - Sets all card scores in chosen deck to 1.")
+        print("  reset-all-decks (ra)   - Sets all card scores in all decks to 1.")
         print("  get-statistics (gs)    - Prints statistics for a specified deck.")
         print("  quit (q)               - Exit the program.")
+        print("  help (h)")
 
         # Strip whitespace from the input command
         command = input("\nEnter a command: ").strip()
@@ -270,6 +316,8 @@ def main():
             command = "get-statistics"
         elif command == "q":
             command = "quit"
+        elif command == "h":
+            command = "help"
 
         # Handle the normalized commands
         if command == "reset-all-decks":
@@ -296,21 +344,21 @@ def main():
                 else:
                     print("Error: No deck specified. Reset aborted.")
         elif command.startswith("practice"):
-            args = command.split(" ", 1)
-            if len(args) > 1:
+            # List available decks
+            available_decks = list_available_decks()
+            if not available_decks:
+                print("No decks available for practice.")
+                continue
+
+            # Ask the user to select a deck
+            deck = input("Which deck would you like to practice? ").strip()
+            if deck in available_decks:
                 num_cards = input(
                     "How many cards would you like to practice? (Press Enter for default 10, 'a' for all cards): "
                 ).strip()
-                practice(args[1], num_cards)
+                practice(deck, num_cards)
             else:
-                deck = input("Which deck would you like to practice? ").strip()
-                if deck:
-                    num_cards = input(
-                        "How many cards would you like to practice? (Press Enter for default 10, 'a' for all cards): "
-                    ).strip()
-                    practice(deck, num_cards)
-                else:
-                    print("Error: No deck specified. Practice session aborted.")
+                print("Error: Specified deck does not exist. Practice session aborted.")
         elif command.startswith("get-statistics"):
             args = command.split(" ", 1)
             if len(args) > 1:
@@ -321,6 +369,12 @@ def main():
                     generate_statistics(deck)
                 else:
                     print("Error: No deck specified. Statistics request aborted.")
+        elif command == "help":
+            print("Sorry mate, no help to be found here!")
+            print("However, feel free to shoot me an email")
+            print("and i might have look at it!")
+            print("larshalvorhansen1@gmail.com")
+            input("Press enter to go back to the menu.")
         elif command == "quit":
             print("Exiting program. Goodbye!")
             break
