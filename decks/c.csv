@@ -1,16 +1,12 @@
 country,capital,score
 Croatia,Zagreb,1
-Ecuador,Quito,1
-Egypt,Cairo,2
-El Salvador,San Salvador,2
+Ecuador,Quito,2
 Equatorial Guinea,Malabo,1
 Eritrea,Asmara,1
-Estonia,Tallinn,2
 Eswatini,Mbabane,1
-Ethiopia,Addis Ababa,2
 Fiji,Suva,1
-Finland,Helsinki,1
-France,Paris,1
+Finland,Helsinki,2
+France,Paris,2
 Gabon,Libreville,1
 Gambia,Banjul,1
 Georgia,Tbilisi,1
@@ -194,3 +190,7 @@ Djibouti,Djibouti,1
 Dominica,Roseau,1
 Dominican Republic,Santo Domingo,1
 DR Congo,Kinshasa,1
+Egypt,Cairo,2
+El Salvador,San Salvador,2
+Estonia,Tallinn,2
+Ethiopia,Addis Ababa,2
