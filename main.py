@@ -103,6 +103,7 @@ def practice(deck, num_cards="10"):
     total_cards = len(cards)
 
     while practiced < num_cards:
+        breakflag = False
         for card in cards:
             if practiced >= num_cards:
                 break
@@ -112,6 +113,9 @@ def practice(deck, num_cards="10"):
             if should_review_score(score):
                 # Display the first field dynamically in a card format
                 question_field = fields[0]
+                info = "What is the capital of:"
+                print()
+                print(info)
                 print_card(card[question_field])
 
                 input("Press Enter when ready to see the answer... ")
@@ -124,7 +128,7 @@ def practice(deck, num_cards="10"):
 
                 # Ask if the user got it correct
                 correct = input(
-                    "Did you get it correct? (Press Enter for yes, write anything for no): "
+                    "Did you get it correct? (Press Enter for yes, write anything for no, x for exit.): "
                 ).strip()
 
                 if correct == "":  # User got it correct
@@ -132,6 +136,9 @@ def practice(deck, num_cards="10"):
                         min(5, score + 1)
                     )  # Move to the next Leitner box (up to 5)
                     print("Correct! Card moved to the next level.")
+                elif correct =="x" or correct == "X":
+                    print("Going back to menu")
+                    return
                 else:  # User got it wrong
                     card["score"] = "1"  # Reset to Box 1
                     print("Incorrect. Card moved back to level 1.")
