@@ -3,7 +3,7 @@ import os
 import time
 
 # Directory where decks are stored
-DECKS_DIR = "/Users/lhh/lanki-2/decks"
+DECKS_DIR = "./decks"
 
 ascii_art = """
 ┌─────────────────────────────┐
@@ -136,7 +136,7 @@ def practice(deck, num_cards="10"):
                         min(5, score + 1)
                     )  # Move to the next Leitner box (up to 5)
                     print("Correct! Card moved to the next level.")
-                elif correct =="x" or correct == "X":
+                elif correct == "x" or correct == "X":
                     print("Going back to menu")
                     return
                 else:  # User got it wrong
@@ -377,7 +377,7 @@ def main():
                 else:
                     print("Error: No deck specified. Statistics request aborted.")
         elif command == "help":
-            print("Sorry mate, no help to be found here!")
+            print("Sorry, no help to be found here!")
             print("However, feel free to shoot me an email")
             print("and i might have look at it!")
             print("larshalvorhansen1@gmail.com")
