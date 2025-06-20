@@ -1,8 +1,5 @@
 country,capital,score
-Eritrea,Asmara,1
-Fiji,Suva,2
 Gabon,Libreville,1
-Gambia,Banjul,2
 Georgia,Tbilisi,1
 Ghana,Accra,1
 Grenada,St. George's,1
@@ -182,6 +179,9 @@ Djibouti,Djibouti,1
 Dominica,Roseau,1
 Dominican Republic,Santo Domingo,1
 DR Congo,Kinshasa,1
+Eritrea,Asmara,2
+Fiji,Suva,2
+Gambia,Banjul,2
 Eswatini,Mbabane,2
 Germany,Berlin,2
 Greece,Athens,2

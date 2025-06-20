@@ -129,10 +129,10 @@ def practice(deck, num_cards="10"):
 
                 # Ask if the user got it correct
                 correct = input(
-                    "Did you get it correct? (n)/Yes (x for exit.): "
+                    "Did you get it correct? (n)/Yes (x to exit to menu.): "
                 ).strip()
 
-                if capitalize(correct) == "YES":  # User got it correct
+                if correct.capitalize() == "Yes":  # User got it correct
                     card["score"] = str(
                         min(5, score + 1)
                     )  # Move to the next Leitner box (up to 5)
@@ -143,9 +143,9 @@ def practice(deck, num_cards="10"):
                 else:  # User got it wrong
                     card["score"] = "1"  # Reset to Box 1
                     print("Incorrect. Card moved back to level 1.")
-                    writeup = input("Write the answer: ")
-                    if writeup == answer:
-                        print("good")
+                    writeup = input("Feel free to type the answer: ")
+                    if writeup.capitalize() == answer:
+                        print("Correct")
 
                 # Save the card's updated state immediately
                 save_deck(deck, cards)
@@ -382,8 +382,8 @@ def main():
                     print("Error: No deck specified. Statistics request aborted.")
         elif command == "help":
             print("Sorry, no help to be found here!")
-            print("However, feel free to shoot me an email")
-            print("and i might have look at it!")
+            print("However, you could shoot me an email")
+            print("and I might have look at it!")
             print("larshalvorhansen1@gmail.com")
             input("Press enter to go back to the menu.")
         elif command == "quit":
