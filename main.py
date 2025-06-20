@@ -123,7 +123,8 @@ def practice(deck, num_cards="10"):
                 print("Answer:")
                 for field in fields:
                     if field != question_field:
-                        print(f"  {field.capitalize()}: {card[field]}")
+                        answer = card[field]
+                        print(f"  {field.capitalize()}: {answer}")
                 print(f"  Score: {card['score']}")
 
                 # Ask if the user got it correct
@@ -142,6 +143,9 @@ def practice(deck, num_cards="10"):
                 else:  # User got it wrong
                     card["score"] = "1"  # Reset to Box 1
                     print("Incorrect. Card moved back to level 1.")
+                    writeup = input("Write the answer: ")
+                    if writeup == answer:
+                        print("good")
 
                 # Save the card's updated state immediately
                 save_deck(deck, cards)

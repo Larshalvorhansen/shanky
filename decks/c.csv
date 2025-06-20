@@ -1,13 +1,10 @@
 country,capital,score
 Eritrea,Asmara,1
-Eswatini,Mbabane,1
-Fiji,Suva,1
+Fiji,Suva,2
 Gabon,Libreville,1
-Gambia,Banjul,1
+Gambia,Banjul,2
 Georgia,Tbilisi,1
-Germany,Berlin,1
 Ghana,Accra,1
-Greece,Athens,1
 Grenada,St. George's,1
 Guatemala,Guatemala City,1
 Guinea,Conakry,1
@@ -185,6 +182,9 @@ Djibouti,Djibouti,1
 Dominica,Roseau,1
 Dominican Republic,Santo Domingo,1
 DR Congo,Kinshasa,1
+Eswatini,Mbabane,2
+Germany,Berlin,2
+Greece,Athens,2
 Equatorial Guinea,Malabo,2
 Croatia,Zagreb,2
 Ecuador,Quito,2
