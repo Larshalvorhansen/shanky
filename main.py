@@ -6,14 +6,14 @@ import time
 DECKS_DIR = "./decks"
 
 ascii_art = """
-┌─────────────────────────────┐
-│    _             _     _    │
-│   | |           | |   (_)   │
-│   | | ____ ____ | |  _ _    │
-│   | |/ _  |  _ \| | / ) |   │
-│   | ( ( | | | | | |< (| |   │
-│   |_|\_||_|_| |_|_| \_)_|   │
-└─────────────────────────────┘
+
+███████╗██╗  ██╗ █████╗ ███╗   ██╗██╗  ██╗██╗   ██╗
+██╔════╝██║  ██║██╔══██╗████╗  ██║██║ ██╔╝╚██╗ ██╔╝
+███████╗███████║███████║██╔██╗ ██║█████╔╝  ╚████╔╝ 
+╚════██║██╔══██║██╔══██║██║╚██╗██║██╔═██╗   ╚██╔╝  
+███████║██║  ██║██║  ██║██║ ╚████║██║  ██╗   ██║   
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   
+
 """
 
 
@@ -129,10 +129,10 @@ def practice(deck, num_cards="10"):
 
                 # Ask if the user got it correct
                 correct = input(
-                    "Did you get it correct? (Press Enter for yes, write anything for no, x for exit.): "
+                    "Did you get it correct? (n)/Yes (x for exit.): "
                 ).strip()
 
-                if correct == "":  # User got it correct
+                if capitalize(correct) == "YES":  # User got it correct
                     card["score"] = str(
                         min(5, score + 1)
                     )  # Move to the next Leitner box (up to 5)
